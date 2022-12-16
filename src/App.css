@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.topic-card{
+  width: fit-content;
+  background-color: #61dafb;
+  font-weight: bold;
+  margin: auto;
+  border-radius: 10px;
+}
+.list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.topic-form{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
