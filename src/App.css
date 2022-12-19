@@ -41,7 +41,7 @@
   width: fit-content;
   background-color: #61dafb;
   font-weight: bold;
-  margin: auto;
+  margin: 5px;
   border-radius: 10px;
 }
 .list-wrapper {
@@ -56,4 +56,10 @@
   justify-content: center;
   align-items: center;
   
+}
+.topic-details{
+  margin-left: 2%;
+}
+.topic-questions-holder {
+  border-left: 5px solid black;
 }
