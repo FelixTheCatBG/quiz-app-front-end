@@ -23,11 +23,13 @@ function App() {
       <Feed />
       <Rightbar />
       </Stack>
+      <footer>
       <div class="center">
       <p>============================</p>
       <p>Hi, this space is for footer</p>
       <p>============================</p>
       </div>
+      </footer>
     </Box>
   );
 }
