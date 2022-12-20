@@ -1,5 +1,6 @@
-import { Box } from '@mui/material'
+import { Box, ImageListItem, ListItemButton } from '@mui/material'
 import React from 'react'
+import { itemData3 } from './design/ItemDataImages'
 
 export const Feed = () => {
   return (
@@ -7,6 +8,21 @@ export const Feed = () => {
       <div>
         
       Feed
+      <ListItemButton href="">
+      
+        {itemData3.map((item) => (
+          <ImageListItem key={item.img} href="">
+            <img
+              src={`${item.img}?w=248&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      
+      </ListItemButton>
+
       </div>
  
     </Box>

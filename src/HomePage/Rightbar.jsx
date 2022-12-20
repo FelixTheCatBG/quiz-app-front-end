@@ -1,5 +1,6 @@
 import { Box, ImageList, ImageListItem } from '@mui/material'
 import React from 'react'
+import {itemData1, itemData2} from './design/ItemDataImages'
 
 const Rightbar = () => {
   return (
@@ -12,7 +13,6 @@ const Rightbar = () => {
         
         <div>
         RightBar | Our images examples
-  
         <ImageList sx={{ width: 500, height: 300 }} variant="woven" cols={2} gap={8}>
         {itemData1.map((item) => (
           <ImageListItem key={item.img}>
@@ -50,43 +50,5 @@ const Rightbar = () => {
     </Box>
   )
 }
-
-const itemData1 = [
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: 'https://i.imgur.com/Hn0PHOc.png',
-    title: 'Burger',
-  },
-];
-
-const itemData2 = [
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  },
-  {
-    img: "https://i.imgur.com/Hn0PHOc.png",
-    title: "Breakfast"
-  }
-];
 
 export default Rightbar
