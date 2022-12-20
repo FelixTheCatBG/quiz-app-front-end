@@ -36,18 +36,18 @@ export function TopicForm() {
 
     return (
         <Paper className='topic-form'>
-        <h2>Create new topic for quizes</h2>
-  
-        <TextField
-        id="topic-textfield"
-          type="text"
-          name="topic"
-          value={topic.topic}
-          onChange={onInputChange}
-          label={"Topic name"} 
-        />
-  
-        <Button sx={{ m: 2 }} variant="contained" onClick={onTopicSubmit}>Submit</Button>
-      </Paper>
+            <h2>Create new topic for quizes</h2>
+
+            <TextField
+                id="topic-textfield"
+                type="text"
+                name="topic"
+                value={topic.topic}
+                onChange={onInputChange}
+                label={"Topic name"}
+            />
+
+            <Button sx={{ m: 2 }} variant="contained" onClick={onTopicSubmit}>Submit</Button>
+        </Paper>
     );
 }

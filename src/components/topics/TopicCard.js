@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
-export function TopicCard({ topic, deleteTopic}) {
+export function TopicCard({ topic, deleteTopic }) {
 
   const navigate = useNavigate();
 
@@ -30,19 +30,19 @@ export function TopicCard({ topic, deleteTopic}) {
   return (
 
     <Card className='topic-card' variant="outlined" sx={{ m: 3 }}>
-    <CardHeader
-      action={
-        <IconButton aria-label="settings"         aria-controls={open ? 'demo-positioned-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}>
-          <MoreVertIcon />
-        </IconButton>
-        
-      }
-      title={topic.topic}
-    />
-          <Menu
+      <CardHeader
+        action={
+          <IconButton aria-label="settings" aria-controls={open ? 'demo-positioned-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}>
+            <MoreVertIcon />
+          </IconButton>
+
+        }
+        title={topic.topic}
+      />
+      <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
@@ -52,19 +52,10 @@ export function TopicCard({ topic, deleteTopic}) {
         <MenuItem onClick={redirectToDetails}>Details</MenuItem>
         <MenuItem onClick={redirectToEdit}>Edit</MenuItem>
         <MenuItem onClick={() => deleteTopic(topic.id)}><IconButton aria-label="delete" size="small">
-  <DeleteIcon fontSize="small" />
-</IconButton>Delete</MenuItem>
+          <DeleteIcon fontSize="small" />
+        </IconButton>Delete</MenuItem>
       </Menu>
-  </Card>
-    // <Card style={{ width: '18rem' }}>
-    //   <Card.Body>
-    //     <Card.Title>{topic.topic}</Card.Title>
-    //     <div className='btn-holder'>
-    //       <Button variant="info" onClick={redirectToDetails}>Details</Button>
-    //       <Button variant="primary" onClick={redirectToEdit}>Edit</Button>
-    //       <Button variant="danger" onClick={() => deleteUser(topic.id)}>Delete</Button>
-    //     </div>
-    //   </Card.Body>
-    // </Card>
+    </Card>
+
   );
 }

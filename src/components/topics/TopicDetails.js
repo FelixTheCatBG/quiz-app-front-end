@@ -29,28 +29,27 @@ export function TopicDetails() {
     return (
         <div className="topic-details">
             <h1>All questions for this topic listed:</h1>
-            <TopicCard topic={topic}/>
+            <TopicCard topic={topic} />
             <div className="topic-questions-holder">
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {topicQuestions.map(questionTopic => {
-        const labelId = `checkbox-list-label-${questionTopic.id}`;
+                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                    {topicQuestions.map(questionTopic => {
+                        const labelId = `checkbox-list-label-${questionTopic.id}`;
 
-        return (
-            <ListItem
-            key={questionTopic.id}
-            secondaryAction={
-              <IconButton onClick={() => onDeleteQuestionHandler(questionTopic.id)} edge="end" aria-label="delete">
-                <DeleteIcon />
-              </IconButton>
-            }
-            disablePadding
-          >
-              <ListItemText id={labelId} primary={`  ${questionTopic.question}`} />
-          </ListItem>
-        );
-      })}
-    </List>
-                {/* {topicQuestions.map(questionTopic => <QuestionsCard key={questionTopic.question_id} rental={rental} onRentalDelete={onDeleteHandler} />)} */}
+                        return (
+                            <ListItem
+                                key={questionTopic.id}
+                                secondaryAction={
+                                    <IconButton onClick={() => onDeleteQuestionHandler(questionTopic.id)} edge="end" aria-label="delete">
+                                        <DeleteIcon />
+                                    </IconButton>
+                                }
+                                disablePadding
+                            >
+                                <ListItemText id={labelId} primary={`  ${questionTopic.question}`} />
+                            </ListItem>
+                        );
+                    })}
+                </List>
             </div>
         </div>
     )
