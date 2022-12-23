@@ -13,7 +13,7 @@ export const Feed = () => {
     <Box bgcolor="skyblue" flex={4} p={2} >
       <div>
 
-        {/* Feed */}
+         Feed 
 
         <img src={Logo} width="700" alt='logo' class='centerimg' />
         <h3 class="h3design">Welcome to our quiz!</h3>

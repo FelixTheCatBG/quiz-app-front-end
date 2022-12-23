@@ -10,11 +10,11 @@ const Rightbar = () => {
       p={2}
       sx={{ display: { xs: "none", sm: "block" } }}
     >
-
+     Rightbar
       <div>
 
 
-      <ImageList sx={{ width: 500, height: 450 }}>
+      <ImageList sx={{ width: '100%', height: 350}}>
       {itemData1.map((item) => (
         <ImageListItem key={item.img}>
           <img
