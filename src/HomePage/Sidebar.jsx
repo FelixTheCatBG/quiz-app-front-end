@@ -1,24 +1,26 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import { Box } from '@mui/material';
+import React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {ArrowForwardIos, Home, SportsEsports} from '@mui/icons-material'
+import { ArrowForwardIos, Home } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
+import PositionedMenu from './MenuBar.jsx'
 
 const Sidebar = () => {
+
   return (
-    <Box 
-    bgcolor="lightgreen"
-    flex={1} 
-    p={2} 
-    sx={{display:{ xs: "none", sm: "block" }}}
+    <Box
+      bgcolor="lightgreen"
+      flex={1}
+      p={2}
+      sx={{ display: { xs: "none", sm: "block" } }}
     >
-        Sidebar
-        
-        <nav>
+      Sidebar
+
+      <nav>
         <List>
           <ListItem disablePadding >
             <ListItemButton href="">
@@ -33,35 +35,13 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ArrowForwardIos />
               </ListItemIcon>
-              <ListItemText primary="Start" />
+              <ListItemText primary="Example" />      
             </ListItemButton>
-          </ListItem>       
-          <ListItem disablePadding>
-            <ListItemButton href="">
-              <ListItemIcon>
-                <SportsEsports />
-              </ListItemIcon>
-              <ListItemText primary="Game" />
-            </ListItemButton>
-          </ListItem>  
+          </ListItem>
         </List>
-        </nav>
+      </nav>
       <Divider />
-      <nav>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton href="">
-              <ListItemText primary="Example" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemText primary="Example 2" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-        </nav>
-
+      <PositionedMenu />
     </Box>
   )
 }
