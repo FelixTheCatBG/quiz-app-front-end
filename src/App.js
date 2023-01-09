@@ -49,6 +49,19 @@ function App() {
         <Route path="/topic/create" element={<TopicForm />} />
         <Route path="/topic/edit/:id" element={<TopicForm />} />
         <Route path="/topic/:id" element={<TopicDetails />} />
+
+          <Route path="/question-list" element={<QuestionList />}/>
+          <Route path="/question/create" element={<QuestionCreate />}/>
+          <Route path="/question/edit/:qid" element={<QuestionEdit />}/>
+
+          <Route path="/teams-list" element={<TeamsList />} />
+          <Route path="/team/create" element={<TeamForm />} />
+          <Route path="/team/edit/:id" element={<TeamForm />} />
+          <Route path="/team/:id" element={<TeamDetails />} />
+
+          <Route path="/quizzes-list" element={<QuizzesList />} />
+          <Route path="/quiz/create" element={<QuizForm />} />
+          <Route path="/quiz/edit/:id" element={<QuizForm />} />
       </Routes>
     </div>
     </Box>
