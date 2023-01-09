@@ -1,0 +1,14 @@
+.centerimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.h3design {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color:blue;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}

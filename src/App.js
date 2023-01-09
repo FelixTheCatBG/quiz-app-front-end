@@ -7,6 +7,11 @@ import Sidebar from "./HomePage/Sidebar";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { QuizzesList } from './components/quizes/QuizzesList';
+import { QuizForm } from './components/quizes/QuizForm';
+import { TeamsList } from './components/teams/TeamsList';
+import { TeamForm } from './components/teams/TeamForm';
+import { TeamDetails } from './components/teams/TeamDetails';
 import { TopicsList } from "./Components/topics/TopicsList";
 import { TopicForm } from "./Components/topics/TopicForm";
 import { TopicDetails } from "./Components/topics/TopicDetails";
@@ -16,6 +21,7 @@ import QuestionList from "./Components/Questions/QuestionList";
 
 function App() {
   return (
+    
     <Box>
       <header>
         <div class="center">
@@ -25,25 +31,9 @@ function App() {
         </div>
       </header>
       <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Sidebar />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Feed />} />
-
-            <Route path="/topics-list" element={<TopicsList />} />
-            <Route path="/topic/create" element={<TopicForm />} />
-            <Route path="/topic/edit/:id" element={<TopicForm />} />
-            <Route path="/topic/:id" element={<TopicDetails />} />
-
-            <Route path="/question-list" element={<QuestionList />}></Route>
-            <Route path="/question/create" element={<QuestionCreate />}></Route>
-            <Route
-              path="/question/edit/:qid"
-              element={<QuestionEdit />}
-            ></Route>
-          </Routes>
-        </div>
-        <Rightbar />
+      <Sidebar />
+      <Feed />
+      <Rightbar />
       </Stack>
       <footer>
         <div class="center">
@@ -52,6 +42,15 @@ function App() {
           <p>============================</p>
         </div>
       </footer>
+    
+    <div className="App">
+      <Routes>
+        <Route path="/topics-list" element={<TopicsList />} />
+        <Route path="/topic/create" element={<TopicForm />} />
+        <Route path="/topic/edit/:id" element={<TopicForm />} />
+        <Route path="/topic/:id" element={<TopicDetails />} />
+      </Routes>
+    </div>
     </Box>
   );
 }
