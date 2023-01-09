@@ -25,7 +25,7 @@ export function saveTeam(team) {
 }
 
 export function getAllUsersForTeam(teamId){
-    return axios.get(`${apiUrl}?team_id=${teamId}`);
+    return axios.get(`${userTeamApiUrl}?team_id=${teamId}`);
 }
 
 export function getCaptainNameById(id) {

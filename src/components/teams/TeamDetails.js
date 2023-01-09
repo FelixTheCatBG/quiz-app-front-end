@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { getAllUsersForTeam, getTeamById } from "../../utils/http-utils/team-requests";
 import { TeamCard } from "./TeamCard";
-import { deleteUser } from "../../utils/http-utils/user-requests";
+import { deleteUser, getAllUsers, getUserById } from "../../utils/http-utils/user-requests";
 
 export function TeamDetails() {
 
@@ -13,9 +13,11 @@ export function TeamDetails() {
         name: ''
     });
     const [teamUsers, setTeamUsers] = useState([]);
+    const [allUsers, setUsers] = useState([]);
     useEffect(() => {
         getTeamById(params.id).then(response => setTeam(response.data));
         getAllUsersForTeam(params.id).then(response => setTeamUsers(response.data));
+        getAllUsers().then(response => setUsers(response.data));
     }, [params.id])
 
     const onDeleteUserHandler = (id) => {
@@ -34,8 +36,9 @@ export function TeamDetails() {
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {teamUsers.map(userFromTeam => {
                         const labelId = `checkbox-list-label-${userFromTeam.user_id}`;
-
+                        
                         return (
+
                             <ListItem
                                 key={userFromTeam.user_id}
                                 secondaryAction={
@@ -45,7 +48,8 @@ export function TeamDetails() {
                                 }
                                 disablePadding
                             >
-                                <ListItemText id={labelId} primary={`  ${userFromTeam.user_id}`} />
+                                <ListItemText id={userFromTeam.user_id} primary={`  ${allUsers[userFromTeam.user_id].first_name + " " + allUsers[userFromTeam.user_id].last_name}`} />
+                            {console.log(userFromTeam.user_id)}
                             </ListItem>
                         );
                     })}
