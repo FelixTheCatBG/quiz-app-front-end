@@ -126,7 +126,7 @@ export default function QuestionCreate() {
                             <div className='col-lg-12'>
                                 <div className='form-group' >
                                     <button  type="submit" className='btnSave btn btn-success'>Save</button>
-                                    <Link to="/"className='btnBack btn btn-danger'>Back</Link>
+                                    <Link to="/question-list"className='btnBack btn btn-danger'>Back</Link>
                                 </div>
                             </div>
                          </div>

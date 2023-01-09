@@ -25,7 +25,7 @@ export default function QuestionList(props) {
   return (
      
       <div className="text-center">
-         <Link to="question/create" className="btn" style={{fontFamily:"cursive",marginTop:"20px",background:"#8c009e",background: "linear-gradient(to right, #8c009e, #8b36e0)"}}>
+         <Link to="/question/create" className="btn" style={{fontFamily:"cursive",marginTop:"20px",background:"#8c009e",background: "linear-gradient(to right, #8c009e, #8b36e0)"}}>
           Add New <IoIosAddCircle size={22}/>
             </Link>
       
