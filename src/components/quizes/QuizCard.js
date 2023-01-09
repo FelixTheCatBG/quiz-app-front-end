@@ -62,7 +62,11 @@ export function QuizCard({ quiz, deleteQuiz, topics }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="list-wrapper">
-                        {topics.map((topic) => <TopicCard key={topic.id} topic={topic} deleteTopic={redirectToEdit} />)}
+                        {
+                            topics.lenght > 0 ?
+                                      topics.map((topic) => <TopicCard key={topic.id} topic={topic} deleteTopic={redirectToEdit} />)
+                                  :  "No topics to show!"
+                        }
                     </div>
                 </AccordionDetails>
             </Accordion>

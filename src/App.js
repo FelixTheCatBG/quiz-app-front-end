@@ -29,19 +29,10 @@ function App() {
       </header>
       <Stack direction="row" spacing={2} justifyContent="space-between">
         <Sidebar />
-        <Feed />
-        <Rightbar />
-      </Stack>
-      <footer>
-        <div class="center">
-          <p>============================</p>
-          <p>Hi, this space is for footer</p>
-          <p>============================</p>
-        </div>
-      </footer>
-
-      <div className="App">
+        <div className="App">
         <Routes>
+          <Route path="/" element={<Feed />} />
+
           <Route path="/topics-list" element={<TopicsList />} />
           <Route path="/topic/create" element={<TopicForm />} />
           <Route path="/topic/edit/:id" element={<TopicForm />} />
@@ -57,6 +48,16 @@ function App() {
           <Route path="/quiz/edit/:id" element={<QuizForm />} />
         </Routes>
       </div>
+        <Rightbar />
+      </Stack>
+      <footer>
+        <div class="center">
+          <p>============================</p>
+          <p>Hi, this space is for footer</p>
+          <p>============================</p>
+        </div>
+      </footer>
+
     </Box>
   );
 }
