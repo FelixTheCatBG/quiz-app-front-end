@@ -15,9 +15,9 @@ export const Feed = () => {
 
          Feed 
 
-        <img src={Logo} width="700" alt='logo' class='centerimg' />
-        <h3 class="h3design">Welcome to our quiz!</h3>
-        <h3 class="h3design">You can choose games in our Game List to my left :)</h3>
+        <img src={Logo} width="700" alt='logo' className='centerimg' />
+        <h3 className="h3design">Welcome to our quiz!</h3>
+        <h3 className="h3design">You can choose games in our Game List to my left :)</h3>
       </div>
 
     </Box>
