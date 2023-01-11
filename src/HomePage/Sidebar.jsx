@@ -5,25 +5,26 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { ArrowForwardIos, Home } from '@mui/icons-material';
+import { Instagram, Home } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
 import PositionedMenu from './MenuBar.jsx'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
   return (
     <Box
-      bgcolor="lightgreen"
+      bgcolor=""
       flex={1}
       p={2}
       sx={{ display: { xs: "none", sm: "block" } }}
     >
-      Sidebar
+      
 
       <nav>
         <List>
           <ListItem disablePadding >
-            <ListItemButton href="">
+            <ListItemButton component={Link} to="  ">
               <ListItemIcon>
                 <Home />
               </ListItemIcon>
@@ -31,11 +32,11 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton href="">
+            <ListItemButton target="_blank" href='https://www.instagram.com/johnnydepp/'>
               <ListItemIcon>
-                <ArrowForwardIos />
+                <Instagram />
               </ListItemIcon>
-              <ListItemText primary="Example" />      
+              <ListItemText primary="Our Instagram" />
             </ListItemButton>
           </ListItem>
         </List>
