@@ -1,18 +1,23 @@
-import { Instagram, Twitter, YouTube } from '@mui/icons-material';
 import React from 'react';
 import './footer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faYoutube,
+    faTwitter,
+    faInstagram
+  } from "@fortawesome/free-brands-svg-icons";
 
 const Footer=()=>(
     <div className="footer-container">
         <div className="socials">
-        <YouTube/>
-        <a href="https://youtube.com">
+        <a href="https://www.youtube.com" className="youtube social"><FontAwesomeIcon icon={faYoutube} size="2x"/>
         </a>
-        <Twitter/>
-        <a href="https://twitter.com">
+        <a href="https://www.twitter.com" className="twitter social">
+        <FontAwesomeIcon icon={faTwitter} size="2x" />
         </a>
-        <Instagram/>
-        <a href="https://instagram.com">
+        <a href="https://www.instagram.com"
+        className="instagram social">
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
         </a>
         </div>
         <div className="copyright">
