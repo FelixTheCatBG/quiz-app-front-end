@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { saveQuestion } from '../../utils/http-utils/question-requests';
 
 const QuestionEdit= ()=> {
    const { qid } = useParams();
@@ -44,6 +46,7 @@ const QuestionEdit= ()=> {
   const handleSubmit = (e)=>{
    e.preventDefault();
    const data={id,topic_id,question,answer1,answer2,answer3,correct_answers,images,points,timer_seconds,is_active}
+
   
    fetch("http://localhost:3005/questions/"+ qid,{
        method:"PUT",
@@ -52,7 +55,7 @@ const QuestionEdit= ()=> {
    })
    .then((res) => {
    alert("Saved...")
-   navigate("/")
+   navigate("/question-list")
    }).catch((err)=>{
    console.log(err.message);
   })
@@ -145,7 +148,7 @@ const QuestionEdit= ()=> {
 
                         <div className='col-lg-12'>
                             <div className='form-group' >
-                                <button  type="submit" className='btnSave btn btn-success'>Save</button>
+                                <Button type="submit" className='btnSave btn btn-success'>Save</Button>
                                 <Link to="/question-list"className='btnBack btn btn-danger'>Back</Link>
                             </div>
                         </div>
