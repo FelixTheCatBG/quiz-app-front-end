@@ -45,7 +45,6 @@ export function TeamForm() {
             ...prevState,
             [event.target.name]: event.target.value
         }))
-        console.log(event.target.name);
     }
 
     const onAutocompleteChange = (event, newValue) => {

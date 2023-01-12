@@ -17,7 +17,7 @@ export function TeamCard({ team, deleteTeam }) {
     });
     useEffect(() => {
         getCaptainNameByTeamId(team).then(response => {
-            setCaptain(response.data[0]);
+            setCaptain(response.data[0])
         })
     }, [team.captain_id])
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -68,7 +68,6 @@ export function TeamCard({ team, deleteTeam }) {
             <Divider />
             <CardContent>
                 <Typography component="div" variant="h5">
-
                     Captain: {captain.first_name + " " + captain.last_name}
                 </Typography>
                 <Divider />

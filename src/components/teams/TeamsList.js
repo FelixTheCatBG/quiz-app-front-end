@@ -28,7 +28,7 @@ export function TeamsList() {
     }
 
     return (
-        <div>
+        <div>{console.log(teams)}
             <Button sx={{ mt: 2 }} variant="contained" size="large" onClick={redirectToCreate}>Create new Team</Button>
             <Divider variant="middle" sx={{ m: 2 }} />
             <div className="list-wrapper">

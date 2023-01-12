@@ -49,7 +49,7 @@ export function UsersInTeamEdit() {
     return (
         <div className="team-details">
             <h1>Edit users in this team:</h1>
-            <TeamCard team={team} />
+            <TeamCard key={team.id} team={team} />
             <div className="team-users-holder">
                 <Divider />
                 <h5>Current users in this team:</h5>
@@ -61,13 +61,12 @@ export function UsersInTeamEdit() {
                                     key={userFromTeam.id}
                                     secondaryAction={
                                         <IconButton onClick={() => onDeleteUserFromTeamHandler(userFromTeam.id)} edge="end" aria-label="delete">
-                                            {console.log(ListItem.key)}
                                             <DeleteIcon />
                                         </IconButton>
                                     }
                                     disablePadding
                                 >
-                                    <ListItemText id={userFromTeam.user_id - 1} primary={`${allUsers[userFromTeam.user_id - 1].first_name + " " + allUsers[userFromTeam.user_id - 1].last_name}`} />
+                                    <ListItemText id={userFromTeam.user_id-1} primary={`${allUsers[userFromTeam.user_id-1].first_name + " " + allUsers[userFromTeam.user_id-1].last_name}`} />           
                                 </ListItem>
                             );
                         })}

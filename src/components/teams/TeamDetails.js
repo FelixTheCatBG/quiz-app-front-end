@@ -1,7 +1,6 @@
-import { Button, IconButton, List, ListItem, ListItemText } from "@mui/material";
+import { Button, List, ListItem, ListItemText } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteTeam, getAllUsersForTeam, getTeamById } from "../../utils/http-utils/team-requests";
 import { TeamCard } from "./TeamCard";
 import { getAllUsers } from "../../utils/http-utils/user-requests";
@@ -23,11 +22,6 @@ export function TeamDetails() {
         getAllUsers().then(response => setUsers(response.data));
     }, [params.id])
 
-    const onDeleteUserHandler = (team_id, user_id) => {
-        deleteUserFromTeam(team_id, user_id).then(() => {
-        });
-
-    }
     const onDeleteHandler = (id) => {
         deleteTeam(id).then(() => {
             navigate(`/teams-list`);
@@ -46,16 +40,9 @@ export function TeamDetails() {
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {teamUsers.map(userFromTeam => {
                         const labelId = `checkbox-list-label-${userFromTeam.user_id}`;
-
                         return (
-
                             <ListItem
                                 key={userFromTeam.user_id}
-                                secondaryAction={
-                                    <IconButton onClick={() => onDeleteUserHandler(userFromTeam.team_id, userFromTeam.user_id)} edge="end" aria-label="delete">
-                                        <DeleteIcon />
-                                    </IconButton>
-                                }
                                 disablePadding
                             >
                                 <ListItemText id={labelId} primary={`  ${allUsers[userFromTeam.user_id - 1].first_name + " " + allUsers[userFromTeam.user_id - 1].last_name}`} />

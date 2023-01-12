@@ -46,7 +46,7 @@
     },
     {
       "name": "working?",
-      "captain_id": 1,
+      "captain_id": 3,
       "points": 0,
       "id": 8
     }
@@ -84,13 +84,33 @@
     },
     {
       "team_id": 8,
-      "user_id": 2,
-      "id": 8
+      "user_id": 1,
+      "id": 9
     },
     {
-      "team_id": 8,
+      "team_id": 3,
       "user_id": 1,
+      "id": 10
+    },
+    {
+      "team_id": 3,
+      "user_id": 2,
+      "id": 11
+    },
+    {
+      "team_id": 3,
+      "user_id": 3,
+      "id": 12
+    },
+    {
+      "team_id": 3,
+      "user_id": 2,
       "id": 13
+    },
+    {
+      "team_id": 3,
+      "user_id": 1,
+      "id": 14
     }
   ],
   "questions": [
