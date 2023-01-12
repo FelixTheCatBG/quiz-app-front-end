@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteTeam, getAllUsersForTeam, getTeamById } from "../../utils/http-utils/team-requests";
 import { TeamCard } from "./TeamCard";
-import { deleteUser, getAllUsers, getUserById } from "../../utils/http-utils/user-requests";
+import { getAllUsers } from "../../utils/http-utils/user-requests";
 import { deleteUserFromTeam } from "../../utils/http-utils/team-users-requests";
 
 export function TeamDetails() {
@@ -14,6 +14,7 @@ export function TeamDetails() {
     const [team, setTeam] = useState({
         name: ''
     });
+    
     const [teamUsers, setTeamUsers] = useState([]);
     const [allUsers, setUsers] = useState([]);
     useEffect(() => {
@@ -22,17 +23,17 @@ export function TeamDetails() {
         getAllUsers().then(response => setUsers(response.data));
     }, [params.id])
 
-    const onDeleteUserHandler = (team_id,user_id) => {
-        deleteUserFromTeam(team_id,user_id).then(() => {
+    const onDeleteUserHandler = (team_id, user_id) => {
+        deleteUserFromTeam(team_id, user_id).then(() => {
         });
-        
-    }   
+
+    }
     const onDeleteHandler = (id) => {
         deleteTeam(id).then(() => {
             navigate(`/teams-list`);
         });
     }
-     const redirectToEditUsersInTeam = () => {
+    const redirectToEditUsersInTeam = () => {
         navigate(`/users-team/edit/${team.id}`);
     }
 
@@ -45,7 +46,7 @@ export function TeamDetails() {
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {teamUsers.map(userFromTeam => {
                         const labelId = `checkbox-list-label-${userFromTeam.user_id}`;
-                        
+
                         return (
 
                             <ListItem
@@ -57,7 +58,7 @@ export function TeamDetails() {
                                 }
                                 disablePadding
                             >
-                                <ListItemText id={labelId} primary={`  ${allUsers[userFromTeam.user_id].first_name + " " + allUsers[userFromTeam.user_id].last_name}`} />
+                                <ListItemText id={labelId} primary={`  ${allUsers[userFromTeam.user_id - 1].first_name + " " + allUsers[userFromTeam.user_id - 1].last_name}`} />
                             </ListItem>
                         );
                     })}

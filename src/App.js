@@ -57,7 +57,7 @@ function App() {
             <Route path="/quiz/edit/:id" element={<QuizForm />} />
           </Routes>
         </div>
-        {/* <Rightbar />  */}
+        <Rightbar />
       </Stack>
       <footer>
         <div className="center">

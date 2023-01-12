@@ -28,6 +28,6 @@ export function getAllUsersForTeam(teamId){
     return axios.get(`${userTeamApiUrl}?team_id=${teamId}`);
 }
 
-export function getCaptainNameById(id) {
-    return axios.get(`${userApiUrl}/${id}`);
+export function getCaptainNameByTeamId(team) {
+    return axios.get(`${userApiUrl}?id=${team.captain_id}`);
 }

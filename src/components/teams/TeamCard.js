@@ -5,7 +5,7 @@ import { green, pink } from '@mui/material/colors';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { getCaptainNameById } from '../../utils/http-utils/team-requests';
+import { getCaptainNameByTeamId } from '../../utils/http-utils/team-requests';
 
 export function TeamCard({ team, deleteTeam }) {
 
@@ -16,8 +16,8 @@ export function TeamCard({ team, deleteTeam }) {
         last_name: ''
     });
     useEffect(() => {
-        getCaptainNameById(team.captain_id).then(response => {
-            setCaptain(response.data);
+        getCaptainNameByTeamId(team).then(response => {
+            setCaptain(response.data[0]);
         })
     }, [team.captain_id])
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -68,7 +68,7 @@ export function TeamCard({ team, deleteTeam }) {
             <Divider />
             <CardContent>
                 <Typography component="div" variant="h5">
-                    
+
                     Captain: {captain.first_name + " " + captain.last_name}
                 </Typography>
                 <Divider />
