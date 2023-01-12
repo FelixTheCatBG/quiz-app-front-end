@@ -23,9 +23,9 @@ export default function PositionedMenu() {
         onClick={handleClick}
       >
         <ListItemIcon>
-                <SportsEsports />
-              </ListItemIcon>
-        Game List
+          <SportsEsports />
+        </ListItemIcon>
+        Discover List
       </ListItemButton>
       <Menu
         id="demo-positioned-menu"
@@ -42,9 +42,11 @@ export default function PositionedMenu() {
           horizontal: 'right',
         }}
       >
-        <MenuItem component={Link} to="  " onClick={handleClose}>Game 1</MenuItem>
-        <MenuItem component={Link} to="  " onClick={handleClose}>Game 2</MenuItem>
-        <MenuItem component={Link} to="  " onClick={handleClose}>Game 3</MenuItem>
+        <MenuItem component={Link} to="/topics-list" onClick={handleClose}>Topics</MenuItem>
+        <MenuItem component={Link} to="/question-list" onClick={handleClose}>Question</MenuItem>
+        <MenuItem component={Link} to="/teams-list" onClick={handleClose}>Teams</MenuItem>
+        <MenuItem component={Link} to="/quizzes-list" onClick={handleClose}>Quizzes</MenuItem>
+
       </Menu>
     </div>
   );

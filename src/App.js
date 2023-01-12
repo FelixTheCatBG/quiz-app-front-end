@@ -1,5 +1,4 @@
-import { Box } from "@mui/material";
-import { Stack } from "@mui/system";
+import { Box, Grid } from "@mui/material";
 import Feed from "./HomePage/Feed";
 import Rightbar from "./HomePage/Rightbar";
 import Sidebar from "./HomePage/Sidebar";
@@ -31,11 +30,13 @@ function App() {
           <p>============================</p>
         </div>
       </header>
-      <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Sidebar />
-        <div className="App">
+      <Grid container justifyContent="space-between">
+
+        <Grid item xs={1.5}> <Sidebar /> </Grid>
+
+        <Grid item xs={7} className="App">
           <Routes>
-            <Route path="/" element={<Feed />} />
+            <Route exact path="/" element={<Feed />} />
 
             <Route path="/topics-list" element={<TopicsList />} />
             <Route path="/topic/create" element={<TopicForm />} />
@@ -56,9 +57,10 @@ function App() {
             <Route path="/quiz/create" element={<QuizForm />} />
             <Route path="/quiz/edit/:id" element={<QuizForm />} />
           </Routes>
-        </div>
-        {/* <Rightbar />  */}
-      </Stack>
+        </Grid>
+
+        <Grid item xs={2.5}>  <Rightbar /> </Grid>
+      </Grid>
       <footer>
         <div className="center">
           <p>============================</p>
