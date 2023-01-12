@@ -6,8 +6,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { TopicCard } from '../topics/TopicCard';
+import { TeamCard } from '../teams/TeamCard';
 
-export function QuizCard({ quiz, deleteQuiz, topics }) {
+export function QuizCard({ quiz, deleteQuiz, topics, teams }) {
 
     const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ export function QuizCard({ quiz, deleteQuiz, topics }) {
 
     return (
 
-        <Card className='quiz-card' variant="outlined" sx={{ m: 3, maxWidth: 400 }}>
+        <Card className='quiz-card' variant="outlined" sx={{ m: 3, width: 400 }}>
             <CardHeader
                 action={
                     <IconButton aria-label="settings" aria-controls={open ? 'demo-positioned-menu' : undefined}
@@ -62,8 +63,8 @@ export function QuizCard({ quiz, deleteQuiz, topics }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="list-wrapper">
-                        {
-                            topics.lenght > 0 ?
+                        {           
+                            topics.length > 0 ?
                                       topics.map((topic) => <TopicCard key={topic.id} topic={topic} deleteTopic={redirectToEdit} />)
                                   :  "No topics to show!"
                         }
@@ -79,10 +80,13 @@ export function QuizCard({ quiz, deleteQuiz, topics }) {
                     <Typography>Show all teams</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget.
-                    </Typography>
+                <div className="list-wrapper">
+                        {           
+                            teams.length > 0 ?
+                                      teams.map((team) => <TeamCard key={team.id} team={team} />)
+                                  :  "No teams to show!"
+                        }
+                    </div>
                 </AccordionDetails>
             </Accordion>
             <Button sx={{ m: 2 }} variant="contained" size="large" onClick={redirectToQuizGame}>Start Quiz</Button>

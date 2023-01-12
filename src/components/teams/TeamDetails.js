@@ -1,14 +1,16 @@
-import { IconButton, List, ListItem, ListItemText } from "@mui/material";
+import { Button, IconButton, List, ListItem, ListItemText } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { getAllUsersForTeam, getTeamById } from "../../utils/http-utils/team-requests";
+import { deleteTeam, getAllUsersForTeam, getTeamById } from "../../utils/http-utils/team-requests";
 import { TeamCard } from "./TeamCard";
 import { deleteUser, getAllUsers, getUserById } from "../../utils/http-utils/user-requests";
+import { deleteUserFromTeam } from "../../utils/http-utils/team-users-requests";
 
 export function TeamDetails() {
 
     const params = useParams();
+    const navigate = useNavigate();
     const [team, setTeam] = useState({
         name: ''
     });
@@ -20,18 +22,25 @@ export function TeamDetails() {
         getAllUsers().then(response => setUsers(response.data));
     }, [params.id])
 
-    const onDeleteUserHandler = (id) => {
-        deleteUser(id).then(() => {
-            setTeamUsers((prevState) => {
-                return prevState.filter(user => user.id !== id);
-            });
+    const onDeleteUserHandler = (team_id,user_id) => {
+        deleteUserFromTeam(team_id,user_id).then(() => {
         });
+        
+    }   
+    const onDeleteHandler = (id) => {
+        deleteTeam(id).then(() => {
+            navigate(`/teams-list`);
+        });
+    }
+     const redirectToEditUsersInTeam = () => {
+        navigate(`/users-team/edit/${team.id}`);
     }
 
     return (
         <div className="team-details">
             <h1>All users in this team listed:</h1>
-            <TeamCard team={team} />
+            <TeamCard key={team.id} team={team} deleteTeam={onDeleteHandler} />
+            <Button sx={{ mt: 2 }} variant="contained" size="large" onClick={redirectToEditUsersInTeam}>Edit users in this Team</Button>
             <div className="team-users-holder">
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {teamUsers.map(userFromTeam => {
@@ -42,14 +51,13 @@ export function TeamDetails() {
                             <ListItem
                                 key={userFromTeam.user_id}
                                 secondaryAction={
-                                    <IconButton onClick={() => onDeleteUserHandler(userFromTeam.user_id)} edge="end" aria-label="delete">
+                                    <IconButton onClick={() => onDeleteUserHandler(userFromTeam.team_id, userFromTeam.user_id)} edge="end" aria-label="delete">
                                         <DeleteIcon />
                                     </IconButton>
                                 }
                                 disablePadding
                             >
-                                <ListItemText id={userFromTeam.user_id} primary={`  ${allUsers[userFromTeam.user_id].first_name + " " + allUsers[userFromTeam.user_id].last_name}`} />
-                            {console.log(userFromTeam.user_id)}
+                                <ListItemText id={labelId} primary={`  ${allUsers[userFromTeam.user_id].first_name + " " + allUsers[userFromTeam.user_id].last_name}`} />
                             </ListItem>
                         );
                     })}

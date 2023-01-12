@@ -11,6 +11,7 @@ import { QuizForm } from './components/quizes/QuizForm';
 import { TeamsList } from './components/teams/TeamsList';
 import { TeamForm } from './components/teams/TeamForm';
 import { TeamDetails } from './components/teams/TeamDetails';
+import { UsersInTeamEdit } from "./components/teams/UsersInTeamEdit";
 import { TopicsList } from "./components/topics/TopicsList";
 import { TopicForm } from "./components/topics/TopicForm";
 import { TopicDetails } from "./components/topics/TopicDetails";
@@ -23,7 +24,7 @@ function App() {
 
     <Box>
       <header>
-        <div class="center">
+        <div className="center">
           <p>============================</p>
           <p>Hi, this space is for header</p>
           <p>============================</p>
@@ -50,6 +51,7 @@ function App() {
             <Route path="/team/create" element={<TeamForm />} />
             <Route path="/team/edit/:id" element={<TeamForm />} />
             <Route path="/team/:id" element={<TeamDetails />} />
+            <Route path="/users-team/edit/:id" element={<UsersInTeamEdit />} />
 
             <Route path="/quizzes-list" element={<QuizzesList />} />
             <Route path="/quiz/create" element={<QuizForm />} />
@@ -60,7 +62,7 @@ function App() {
         <Grid item xs={2.5}>  <Rightbar /> </Grid>
       </Grid>
       <footer>
-        <div class="center">
+        <div className="center">
           <p>============================</p>
           <p>Hi, this space is for footer</p>
           <p>============================</p>

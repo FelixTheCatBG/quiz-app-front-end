@@ -68,6 +68,7 @@ export function TeamCard({ team, deleteTeam }) {
             <Divider />
             <CardContent>
                 <Typography component="div" variant="h5">
+                    
                     Captain: {captain.first_name + " " + captain.last_name}
                 </Typography>
                 <Divider />
