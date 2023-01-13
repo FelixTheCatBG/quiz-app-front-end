@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function QuestionCreate() {
@@ -18,12 +19,12 @@ export default function QuestionCreate() {
    const [is_active,activechange] = useState(false);
    const navigate=useNavigate();
 
-
    const handleSubmit = (e)=>{
     e.preventDefault();    
 
     const data={id,topic_id,question,answer1,answer2,answer3,correct_answers,images,points,timer_seconds,is_active}
 
+   
     fetch("http://localhost:3005/questions",{
         method:"POST",
         headers:{"content-type":"application/json"},
@@ -31,7 +32,7 @@ export default function QuestionCreate() {
     })
     .then((res) => {
     alert("Saved...")
-    navigate("/")
+    navigate("/question-list")
     }).catch((err)=>{
     console.log(err.message);
    })
@@ -125,7 +126,7 @@ export default function QuestionCreate() {
 
                             <div className='col-lg-12'>
                                 <div className='form-group' >
-                                    <button  type="submit" className='btnSave btn btn-success'>Save</button>
+                                    <Button type="submit" className='btnSave btn btn-success'>Save</Button>
                                     <Link to="/question-list"className='btnBack btn btn-danger'>Back</Link>
                                 </div>
                             </div>
